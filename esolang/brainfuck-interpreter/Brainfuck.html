@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BI</title>
+
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/knockout-3.1.0.js"></script>
+    <script src="Scripts/brainfuck.viewmodel.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+</head>
+<body style="width: 100%; height: 100%">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <span class="navbar-brand">Brainfuck</span>
+            <div class="nav navbar-nav navbar-left">
+                <span class="navbar-text">State: </span>
+                <span class="navbar-text" style="font-weight: bold" data-bind="text: state"></span>
+                <label class="navbar-text">
+                    <input type="checkbox" data-bind="checked: stepByStep, disable: isRunning" />
+                    Step by step
+                </label>
+            </div>
+            <div class="navbar-form navbar-left">
+                <input class="form-control" type="text" style="width: 50px" data-bind="value: stepByStepSpeed, enable: stepByStep" />
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <button type="button" class="btn btn-default navbar-btn" data-bind="click: run, clickBubble: false, disable: isRunning">Run</button>
+                <button type="button" class="btn btn-default navbar-btn" data-bind="click: step, clickBubble: false, disable: isRunning">Next step</button>
+                <button type="button" class="btn btn-default navbar-btn" data-bind="click: reset, clickBubble: false, disable: isRunning">Reset</button>
+                <button type="button" class="btn btn-default navbar-btn" data-bind="click: stop, clickBubble: false, enable: isRunning">Stop</button>
+            </div>
+        </div>
+    </nav>
+    <div id="code">
+        <h2>Code</h2>
+        <textarea class="form-control" data-bind="value: code"></textarea>
+        <div id="codePosition" data-bind="style: { left: (codePositionColumn() * 8 + 16 - $($element).parent().find('textarea').scrollLeft()) + 'px', top: (codePositionRow() * 20 + 84 - $($element).parent().find('textarea').scrollTop()) + 'px' }"></div>
+    </div>
+    <div id="stdin">
+        <h2>Input</h2>
+        <textarea class="form-control" data-bind="value: stdin"></textarea>
+    </div>
+    <div id="stdout">
+        <h2>Output</h2>
+        <textarea class="form-control" data-bind="value: stdout" readonly></textarea>
+    </div>
+    <div id="data">
+        <h2>Data</h2>
+        <div class="form-control" data-bind="foreach: data">
+            <div class="form-control data-item" data-bind="css: { active: $index() == $parent.dataIndex() }"><span class="data-value" data-bind="text: value"></span></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new BrainFuckInterpreter());
+        });
+    </script>
+</body>
+</html>
