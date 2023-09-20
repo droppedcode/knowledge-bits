@@ -17,3 +17,7 @@
 [Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6/)
 
 [Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/)
+
+[Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/)
+
+[Why is .NET so Insanely Fast? with Stephen Toub | Keep Coding Podcast #7](https://www.youtube.com/watch?v=Hxfu_KEa4uA)
