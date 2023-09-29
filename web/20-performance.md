@@ -10,3 +10,7 @@
 
 [Web Speed & Performance at Developer Events](https://www.youtube.com/playlist?list=PLNYkxOF6rcIA45nTi9hvBCgKWBIrdRjf5)
 - [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
+
+## CSS
+
+[CSS runtime performance | Nolan Lawson | performance.now() 2022](https://www.youtube.com/watch?v=nWcexTnvIKI)
